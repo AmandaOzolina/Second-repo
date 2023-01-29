@@ -1,0 +1,2 @@
+labojums
+podzinja
