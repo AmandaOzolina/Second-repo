@@ -14,6 +14,12 @@ print('Loading configuration from file')
 nasa_api_key = "fYuklsbuRJguFPulmRIvkW6RFwlbbueIA6ZPKszK"
 nasa_api_url = "https://api.nasa.gov/neo/"
 
+#Loading logging configuration
+with open (',log_worker.yaml,'r') as stream:
+	   log_config.dictConfig(log_config)
+	   
+logging.config.dictConfig(log_config)
+
 # Getting todays date
 dt = datetime.now()
 request_date = str(dt.year) + "-" + str(dt.month).zfill(2) + "-" + str(dt.day).zfill(2)  
