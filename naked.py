@@ -1,4 +1,4 @@
-import requests
+import requests  # nav ko rediget
 import json
 import datetime
 import time
