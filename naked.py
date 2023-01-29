@@ -113,18 +113,21 @@ if r.status_code == 200:
 
 	print("Hazardous asteorids: " + str(len(ast_hazardous)) + " | Safe asteroids: " + str(len(ast_safe)))
 
-	if len(ast_hazardous) > 0:
-
+	# If there is hazardous asteroids
+	   if len(ast_hazardous) > 0:
+	   
+                # Sort asteroids
 		ast_hazardous.sort(key = lambda x: x[4], reverse=False)
-
-		print("Today's possible apocalypse (asteroid impact on earth) times:")
-		for asteroid in ast_hazardous:
+                # Print warning
+		logger.info("Today's possible apocalypse (asteroid impact on earth) times:")
+		# Loop thought hazardous array list.
+	        for asteroid in ast_hazardous:
 			print(str(asteroid[6]) + " " + str(asteroid[0]) + " " + " | more info: " + str(asteroid[1]))
-
+		# Sort and print closest hazardous asteroids
 		ast_hazardous.sort(key = lambda x: x[8], reverse=False)
 		print("Closest passing distance is for: " + str(ast_hazardous[0][0]) + " at: " + str(int(ast_hazardous[0][8])) + " km | more info: " + str(ast_hazardous[0][1]))
 	else:
 		print("No asteroids close passing earth today")
-
+#No response from API
 else:
 	print("Unable to get response from API. Response code: " + str(r.status_code) + " | content: " + str(r.text))
