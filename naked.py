@@ -19,6 +19,14 @@ with open (',log_worker.yaml,'r') as stream:
 	   log_config.dictConfig(log_config)
 	   
 logging.config.dictConfig(log_config)
+	   
+#Creating logger
+logger = logging.getLogger('root')
+	   
+logger.info('Asteroid processing service')
+	   
+#Initiating and reading config values
+logger.info('Loading configuration from file')
 
 # Getting todays date
 dt = datetime.now()
